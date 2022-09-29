@@ -1,29 +1,24 @@
 function minSubArrayLen(arr,val){
-    let sum=0
-    let i=0
-    let start=0
-    let end=0
-    let res;
-    while(sum<val){
-       sum+=arr[i]
+  //1st method   Best method
+  let start=0
+  let end=0
+  let minVal=Infinity
+  let sum=0
+  while(start<arr.length){
+    if(sum<val  && end< arr.length){
+      sum+=arr[end]
+      end++
+    }else if(sum>=val){
+      minVal=Math.min(minVal, end-start)
+      sum-=arr[start]
+      start++
+    }else{
+      break
     }
-    end=i
-    res=end-start
-
-    while(end<arr.length){
-     if(sum>=val){
-        if(res<(end-start)){
-            res=end-start
-        }
-       start++
-     }else{
-        end++
-     }
-   
-
-    }return res
-
+  } return minVal==Infinity ? 0 : minVal 
 }
+
+
 
 console.log(minSubArrayLen([2,3,1,2,4,3], 7)) // 2 -> because [4,3] is the smallest subarray
 console.log(minSubArrayLen([2,1,6,5,4], 9)) // 2 -> because [5,4] is the smallest subarray
