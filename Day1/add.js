@@ -10,6 +10,7 @@ function addUpto(n){
 console.log(addUpto(6))  // 1+2+3+4+5+6=21    O(n)- as it is running n times
 
 let t1=performance.now()
+console.log(`time given by perf ${t1}`)
 addUpto(1000000000)
 let t2=performance.now()
 console.log(`Time taking for 1st method is : ${(t2-t1)/1000} seconds`)  //1.2096370999999344  sec although it is varying each time
