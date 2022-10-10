@@ -14,7 +14,7 @@ function capitalizeWords (arr1) {
     // console.log(arr1[0][0].toUpperCase()+arr1[0].substring(1))
     if (arr1.length === 0) {
         // console.log(arr)
-      return ['Satya']
+      return []
     }
      arr.push(arr1[0][0].toUpperCase()+arr1[0].substring(1))
     return arr.concat(capitalizeWords(arr1.slice(1)))
